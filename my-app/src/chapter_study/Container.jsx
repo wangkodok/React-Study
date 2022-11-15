@@ -30,7 +30,7 @@ function List(params) {
                 <a href="#">{params.title}</a>
             </li>
             <li>
-                <a href="#" style={style.Font}>스타일 넣기</a>
+                <a href="#" style={style.Font} onClick={function(event) {event.preventDefault(); params.onChangMode();}}>스타일 넣기</a>
             </li>
         </ul>
     )
@@ -43,12 +43,12 @@ function Container(params) {
             {comments.map((arrList, value) => {
                 console.log(arrList, value)
                 return (
-                    <Content key={arrList.count} lines={arrList.lines} myName={arrList.myName} />
+                    <Content key={arrList.count} lines={arrList.lines} myName={arrList.myName} onChangMode={function() {alert('Content')}} />
                 )
             })}
             <Content />
             <Content languageHTML5='HTML5' languageCSS3='CSS3' languageJavaScript='JavaScript' />
-            <List title='Study'/>
+            <List title='Study' onChangMode={function() {alert('Content')}} />
         </div>
     )
 }

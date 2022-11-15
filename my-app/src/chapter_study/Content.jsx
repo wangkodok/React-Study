@@ -5,13 +5,13 @@ function Content(params) {
     return (
         <ul>
             <li>
-                <a href="#">HTML5 {params.lines}-{params.myName}</a>
+                <a href="#" onClick={function(event) {event.preventDefault(); params.onChangMode();}}>HTML5 {params.lines} - {params.myName}</a>
             </li>
             <li>
-                <a href="#">CSS3 {params.lines}-{params.myName}</a>
+                <a href="#" onClick={function(event) {event.preventDefault(); params.onChangMode();}}>CSS3 {params.lines}  -{params.myName}</a>
             </li>
             <li>
-                <a href="#">JavaScript {params.lines}-{params.myName}</a>
+                <a href="#" onClick={function(event) {event.preventDefault(); params.onChangMode();}}>JavaScript {params.lines} - {params.myName}</a>
             </li>
             <li>
                 <a href="#">{params.languageHTML5}</a>
