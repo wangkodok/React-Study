@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import EventList from './chapter_event/EventList';
+import List from './chapter_study/list';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <EventList />
+    <List />
   </React.StrictMode>
 )
 
