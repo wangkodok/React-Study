@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Container from './chapter_study/Container';
+import EventList from './chapter_event/EventList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Container />
+    <EventList />
   </React.StrictMode>
 )
 
