@@ -7,7 +7,10 @@ function ListItems(props) {
         let boxTopics = props.topics[i]
         Itmes.push(
             <li key={boxTopics.id}>
-                <a href="#">{boxTopics.title}</a>
+                <a href="#" id={boxTopics.id} onClick={function(event) {
+                    event.preventDefault();
+                    props.onChangeMode(event.target.id);
+                }}>{boxTopics.title}</a>
             </li>
         )
     }
@@ -26,7 +29,7 @@ function List() {
     ]
     return (
         <nav>
-            <ListItems key={topics.id} topics={topics} />
+            <ListItems key={topics.id} topics={topics} onChangeMode={function(id) {alert(id)}}/>
             {/* {topics.map((keyTopics) => {
                 return (
                     <ListItems key={keyTopics.id} topics={topics} />
