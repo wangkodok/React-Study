@@ -13,6 +13,11 @@ function State() {
     let [click, clickChange] = useState(0);
     console.log(click, clickChange);
 
+    const [data, setData] = useState({ // 수정하면 실시간으로 변경
+        name: '홍길동',
+        age: 30,
+        job: 'front-end web development'
+    })
     let posts = '강남역 고기집';
     return (
         <div>
@@ -26,6 +31,12 @@ function State() {
                     </span>
                 </h4>
                 <p>문장</p>
+                <hr />
+            </div>
+            <div>
+                <h4>{ posts }</h4>
+                <p>문장: { posts }</p>
+                <p>직업: { data.job }</p>
                 <hr />
             </div>
             <div>
