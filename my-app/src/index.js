@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import State from './chapter_state/State'
+import Accordion from './chapter_accordion/Accordion'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <State />
+    <Accordion />
   </React.StrictMode>
 )
 
