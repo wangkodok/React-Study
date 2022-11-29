@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import MouseEvent from './chapter_mouse/MouseEvent'
+import StateClick from './chapter_state/StateClick'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MouseEvent />
+    <StateClick />
   </React.StrictMode>
 )
 

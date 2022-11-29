@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from 'react';
+import './Style.css'
 
 function State() {
     let [click, clickChange] = useState(0);
@@ -62,7 +63,38 @@ function State() {
                 <p>문장</p>
                 <hr />
             </div>
+
+            {/* modal 컴포넌트 */}
+            <Modal></Modal>
+
+            {/* ModalFunction 컴포넌트 */}
+            <ModalFunction />
         </div>
+    )
+}
+
+const ModalFunction = () => {
+    return (
+        <div className="modalfunction">
+            <p>ModalFunction 컴포넌트</p>
+        </div>
+    )
+}
+
+function Modal() {
+    return (
+        // 리턴에서 div 2개 이상 사용하고 싶을 때 <></> 사용하기
+        <>
+            <div className="modal">
+                <h4>제목</h4>
+                <p>날짜</p>
+                <p>상세내용</p>
+                <hr />
+            </div>
+            <div>
+                <div></div>
+            </div>
+        </>
     )
 }
 

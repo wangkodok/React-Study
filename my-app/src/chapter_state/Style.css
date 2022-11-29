@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.modal {
+    margin: 20px 0 0 0;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.modalfunction {
+    margin: 20px 0 0 0;
+    padding: 20px;
+    background-color: #eee;
+}
