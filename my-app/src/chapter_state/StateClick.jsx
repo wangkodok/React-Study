@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './Style.css'
 
 function State() {
@@ -12,6 +12,8 @@ function State() {
         job: 'front-end web development'
     })
     let posts = '강남역 고기집';
+
+    let [modal, setModal] = useState(false);
 
     // 변경 함수 ver 1
     // function 변경() {
@@ -31,6 +33,22 @@ function State() {
         newArray.job = 'back-end web development';
         setData(newArray);
     }
+
+    // 영역 바깥쪽을 클릭 시 닫기
+    const node = useRef();
+    useEffect(() => {
+      const clickOutside = (e) => {
+        // 모달이 열려 있고 모달의 바깥쪽을 눌렀을 때 창 닫기
+        if (modal && node.current && !node.current.contains(e.target)) {
+            setModal(false);
+        }
+      };
+      document.addEventListener("click", clickOutside);
+      return () => {
+        // Cleanup the event listener
+        document.removeEventListener("click", clickOutside);
+      };
+    }, [modal]);
 
     return (
         <div>
@@ -64,8 +82,18 @@ function State() {
                 <hr />
             </div>
 
-            {/* modal 컴포넌트 */}
-            <Modal></Modal>
+            <button ref={node} className="modal-btn" onClick={
+                () => {
+                    if (modal === false) {
+                        setModal(true);
+                    } else {
+                        setModal(false);
+                    }
+                }
+            }>모달 버튼</button>
+            {
+                modal === true ? <Modal /> : null
+            }
 
             {/* ModalFunction 컴포넌트 */}
             <ModalFunction />
@@ -86,7 +114,7 @@ function Modal() {
         // 리턴에서 div 2개 이상 사용하고 싶을 때 <></> 사용하기
         <>
             <div className="modal">
-                <h4>제목</h4>
+                <h4>Modal: 제목</h4>
                 <p>날짜</p>
                 <p>상세내용</p>
                 <hr />

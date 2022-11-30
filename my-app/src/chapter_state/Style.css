@@ -11,3 +11,13 @@
     padding: 20px;
     background-color: #eee;
 }
+
+.modal-btn {
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.modal-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
