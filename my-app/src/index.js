@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import StateClick from './chapter_state/StateClick'
+import StateMap from './chapter_state/StateMap'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <StateClick />
+    <StateMap />
   </React.StrictMode>
 )
 
