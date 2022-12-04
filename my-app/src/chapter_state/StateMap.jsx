@@ -9,8 +9,7 @@ function State() {
         0,
         0,
     ]);
-    console.log(countClick, 'countClick')
-    console.log(setCountClick, 'setCountClick')
+    let [modal, setModal] = useState(false);
 
     let [Item, setItems] = useState(
         [
@@ -36,12 +35,32 @@ function State() {
                                 setCountClick(arrays);
                             }}>👍 좋아요 {countClick[i]}</span>
                             <p>Item 배열의 value 값 { data }</p>
-                            <p>Item 배열의 index 사용 { Item[i] }</p>
+                            <p onClick={function() {
+                                setModal(!modal);
+                            }}>Item 배열의 index 사용 { Item[i] }</p>
                             <hr />
                         </div>
                     )
                 })
             }
+            {
+                // 부모 > 자식 state 전송하려면 props 문법 쓰는 방법
+                modal === true ? <Modal setItems={setItems} border={'10px solid #000'} Item={Item} /> : null
+            }
+        </div>
+    )
+}
+
+function Modal(props) {
+    return (
+        <div className="modal" style={{border: props.border}}>
+            <h5>제목</h5>
+            <p>{props.Item[0]}</p>
+            <p>날짜</p>
+            <p>상세내용</p>
+            <button onClick={function() {
+                props.setItems(['취뽀', '했다', '오예',]);
+            }} style={{border: '1px solid #000'}}>글 수정</button>
         </div>
     )
 }
