@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import StateMap from './chapter_state/StateMap'
+import Props from './chapter_props/Props'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <StateMap />
+    <Props />
   </React.StrictMode>
 )
 
