@@ -21,6 +21,12 @@ function MyFunction() {
             0,
         ]
     );
+    let [modal, setModal] = useState(
+        [
+            false,
+            false,
+        ]
+    );
     let [desc, setDesc] = useState(
         [
             '버튼 클릭하세요.',
@@ -46,7 +52,19 @@ function MyFunction() {
                                let descChange = [...desc];
                                descChange[i] = '텍스트가 변경되었습니다.';
                                setDesc(descChange);
+                               let modalChange = [...modal];
+                               modalChange[i] = true;
+                               setModal(modalChange);
+                               // setModal(!modal); 모달창 1개이면 쓰는 방법
                             }} className="btn-content">버튼</button>
+                            {
+                                modal[i] === true ? 
+                                    <div className="modal">
+                                        <h2>모달창</h2>
+                                        <p>모달창 문장</p>
+                                    </div>
+                                : null
+                            }
                             <p>{desc[i]}</p>
                         </div>
                     )
