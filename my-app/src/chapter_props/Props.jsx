@@ -21,6 +21,7 @@ function MyFunction() {
             0,
         ]
     );
+    let [age, setAge] = useState(0);
     let [modal, setModal] = useState(
         [
             false,
@@ -56,7 +57,9 @@ function MyFunction() {
                                modalChange[i] = true;
                                setModal(modalChange);
                                // setModal(!modal); 모달창 1개이면 쓰는 방법
+                               setAge([i]);
                             }} className="btn-content">버튼</button>
+                            <Count array={array} age={age} test={'Count 함수의 props로 전송'} />
                             {
                                 modal[i] === true ? 
                                     <div className="modal">
@@ -71,6 +74,13 @@ function MyFunction() {
                 })
             }
         </>
+    )
+}
+
+function Count(props) {
+    console.log(props.test) // 전송 받은 값 사용
+    return (
+        <p>{props.array[props.age]}</p>
     )
 }
 
