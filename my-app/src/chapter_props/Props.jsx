@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './PropsStyle.css';
 
 function MyFunction() {
@@ -34,6 +34,10 @@ function MyFunction() {
             '버튼 클릭하세요.',
         ]
     );
+    let [valueResult, setValueResult] = useState('');
+    useEffect(() => {
+        console.log(valueResult);
+    });
     return (
         <>
             {
@@ -73,6 +77,9 @@ function MyFunction() {
                     )
                 })
             }
+            <input value={valueResult} onChange={function(e) {
+                setValueResult(e.target.value);
+            }} />
         </>
     )
 }
