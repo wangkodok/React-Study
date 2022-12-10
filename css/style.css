@@ -1,6 +1,38 @@
 @charset "utf-8";
 
-h1 {
-    color: green;
-    font-style: italic;
+/* wrap */
+.accordion-wrap {}
+
+/* Accordion */
+.accordion-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.accordion-list > li {
+    position: relative;;
+    background-color: #eee;
+    border-radius: 22px;
+    margin: 0 10px 0 0;
+}
+.accordion-list > li > a {
+    padding: 10px 20px;
+}
+
+/* Accordion-content */
+.accordion-listSub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.accordion-listSub > li  {}
+.accordion-listSub > li > a {
+    padding: 10px 20px;
+}
+
+/* On Off */
+.accordion-list > li.on .accordion-listSub {
+    display: block;
 }
