@@ -73,6 +73,11 @@ function MyFunction() {
                                 : null
                             }
                             <p>{desc[i]}</p>
+                            <button onClick={function() {
+                                let copy = [...array]
+                                copy.splice(i, 1);
+                                arrayChange(copy);
+                            }} className="btn-delete">삭제</button>
                         </div>
                     )
                 })
@@ -80,6 +85,14 @@ function MyFunction() {
             <input value={valueResult} onChange={function(e) {
                 setValueResult(e.target.value);
             }} />
+            <button className="btn-on" onClick={function() {
+                let copy = [...array];
+                copy.push(valueResult);
+                arrayChange(copy);
+                let countCopy = [...count];
+                countCopy.push(0);
+                setCount(countCopy);
+            }}>버튼</button>
         </>
     )
 }
