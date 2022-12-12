@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import Props from './chapter_props/Props'
+import HeaderProps from "./chapter_props/HeaderProps";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <HeaderProps />
     <Props />
   </React.StrictMode>
 )
