@@ -47,6 +47,7 @@ function MyFunction() {
                     return (
                         <div key={i} className="sec-content"> 
                             <h1>{array[0]}</h1>
+                            <p>테스트</p>
                             <p>{array[1]}</p>
                             <p onClick={function() {
                                 let countChange = [...count];
