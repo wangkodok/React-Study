@@ -5,11 +5,12 @@
     background-color: #000;
 }
 
-p {
-    color: #fff;
-}
-
 .header__desc {
     font-size: 20px;
     font-weight: 700;
+    color: #fff;
+}
+
+.header__text {
+    color: #fff;
 }
