@@ -6,10 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import Props from './chapter_props/Props'
 import HeaderProps from "./chapter_props/HeaderProps";
+// import Todolist from './chapter_todolist/TodoList'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <Todolist /> */}
     <HeaderProps />
     <Props />
   </React.StrictMode>

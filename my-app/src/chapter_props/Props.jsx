@@ -9,12 +9,6 @@ function MyFunction() {
             '문장'
         ]
     )
-    let [obj, objChange] = useState(
-        {
-            title: '제목 타이틀',
-            desc: '문장',
-        }
-    )
     let [count, setCount] = useState(
         [
             0,
@@ -40,6 +34,19 @@ function MyFunction() {
     });
     return (
         <>
+            <div className="text-inputbtn">
+                <input value={valueResult} onChange={function(e) {
+                    setValueResult(e.target.value);
+                }} />
+                <button className="btn-on" onClick={function() {
+                    let copy = [...array];
+                    copy.push(valueResult);
+                    arrayChange(copy);
+                    let countCopy = [...count];
+                    countCopy.push(0);
+                    setCount(countCopy);
+                }}>버튼</button>
+            </div>
             {
                 array.map(function(value, i) {
                     console.log(value);
@@ -83,17 +90,6 @@ function MyFunction() {
                     )
                 })
             }
-            <input value={valueResult} onChange={function(e) {
-                setValueResult(e.target.value);
-            }} />
-            <button className="btn-on" onClick={function() {
-                let copy = [...array];
-                copy.push(valueResult);
-                arrayChange(copy);
-                let countCopy = [...count];
-                countCopy.push(0);
-                setCount(countCopy);
-            }}>버튼</button>
         </>
     )
 }

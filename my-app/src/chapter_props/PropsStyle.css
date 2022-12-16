@@ -35,9 +35,19 @@ h2 {
     margin: 0;
 }
 
+.text-inputbtn {
+    margin: 20px 0 0 0;
+    padding: 0 20px;
+}
+
 input {
+    width: 70%;
+    height: 48px;
     border: 1px solid #000;
-    padding: 1px;
+    padding: 1px 10px;
+    box-sizing: border-box;
+    outline: none;
+    vertical-align: middle;
 }
 
 .btn-delete {
@@ -49,8 +59,11 @@ input {
 }
 
 .btn-on {
+    width: 30%;
+    height: 48px;
     padding: 2px 20px;
     margin: 0 0 0 -1px;
     color: #fff;
     background-color: #000;
+    vertical-align: middle;
 }
