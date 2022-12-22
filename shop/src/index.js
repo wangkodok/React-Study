@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Shop from './shoppingmall/Shop'
+// import Shop from './shoppingmall/Shop'
+import StudyTest from './study/StudyTest';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Shop />
+      <StudyTest />
     </BrowserRouter>
   </React.StrictMode>
 );
