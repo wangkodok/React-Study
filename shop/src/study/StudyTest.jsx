@@ -87,19 +87,38 @@ function DetailPage(props) {
     });
     console.log(product);
 
+    let navigate = useNavigate();
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <img src={`https://codingapple1.github.io/shop/shoes${Number(product.id)+1}.jpg`} width="100%" />
-                </div>
-                <div className="col-md-6">
-                    <h4 className="pt-5">{product.title}</h4>
-                    <p>{product.content}</p>
-                    <p>{product.price}원</p>
-                    <button className="btn btn-danger">주문하기</button> 
-                </div>
+        <>
+            <div className='inner'>
+                <Link to={"/"}>홈</Link>
+                <button onClick={ () => {
+                    navigate('/');
+                }}>button태그의 홈 </button>
+                <Link onClick={ (e) => {
+                    console.log(e.target.innerText);
+                    if (e.target.innerText === '홈') {
+                        console.log(e);
+                        navigate('/');
+                    }
+                }}>홈</Link>
+                <Link to={"/page"}>Link 링크</Link>
+                <a href="https://www.naver.com">a 링크</a>
             </div>
-        </div> 
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <img src={`https://codingapple1.github.io/shop/shoes${Number(product.id)+1}.jpg`} width="100%" />
+                    </div>
+                    <div className="col-md-6">
+                        <h4 className="pt-5">{product.title}</h4>
+                        <p>{product.content}</p>
+                        <p>{product.price}원</p>
+                        <button className="btn btn-danger">주문하기</button> 
+                    </div>
+                </div>
+            </div> 
+        </>
     )
 }
