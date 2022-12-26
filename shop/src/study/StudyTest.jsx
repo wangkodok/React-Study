@@ -15,6 +15,10 @@ function PageLink() {
             <Routes>
                 <Route path='/' element={ <MainPage shoes={shoes} setShoes={setShoes} /> } />
                 <Route path='/detail/:id' element={ <DetailPage shoes={shoes} /> } />
+                <Route path='/about' element={ <About /> } >
+                    <Route path='member' element={ <Member /> } />
+                    <Route path='location' element={ <Location /> } />
+                </Route>
             </Routes>
         </>
     )
@@ -120,5 +124,50 @@ function DetailPage(props) {
                 </div>
             </div> 
         </>
+    )
+}
+
+function About() {
+    let navigate = useNavigate();
+    console.log(navigate);
+
+    return (
+        <div>
+            <div>회사 소개</div>
+            <p>회사는 소개합니다.</p>
+            {/* <Link to={'/about/location'}>location</Link>
+            <Link to={'/about/member'}>member</Link> */}
+
+            {/* <button onClick={() => {
+                navigate('/about/location');
+            }}>location</button><br />
+            <button onClick={() => {
+                navigate('/about/member');
+            }}>member</button> */}
+
+            <Link onClick={(e) => {
+                e.preventDefault();
+                navigate('/about/location');
+            }}>location</Link>
+
+            <Link onClick={(e) => {
+                e.preventDefault();
+                navigate('/about/member');
+            }}>member</Link>
+
+            <Outlet></Outlet>
+        </div>
+    )
+}
+
+function Member() {
+    return (
+        <p>　· Member 컴포넌트</p>
+    )
+}
+
+function Location() {
+    return (
+        <p>　· Location 컴포넌트</p>
     )
 }
