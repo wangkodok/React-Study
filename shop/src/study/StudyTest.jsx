@@ -5,6 +5,8 @@ import bg from '../img/bg.png';
 import { useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom';
+import StudyCSS from './Study.module.css';
+import styled from "styled-components";
 
 function PageLink() {
     let [shoes, setShoes] = useState(data);
@@ -127,12 +129,36 @@ function DetailPage(props) {
     )
 }
 
+// styled-components
+let YellowBtn = styled.button`
+    background-color : ${ props => props.bg };
+    color: ${ props => props.bg == 'blue' ? 'white' : 'black' };
+    padding : 10px;
+`;
+
+// YellowBtn 카피
+let NewBtn = styled(YellowBtn)`
+    border: 5px solid black;
+    box-sizing: border-box;
+    color: white;
+`;
+
+let Box = styled.div`
+    background-color: #eee;
+    padding: 20px;
+`;
+
 function About() {
     let navigate = useNavigate();
     console.log(navigate);
 
     return (
         <div>
+            <Box>
+                <YellowBtn bg="blue">버튼</YellowBtn>
+                <YellowBtn bg="orange">버튼</YellowBtn>
+                <NewBtn bg="red">dd</NewBtn>
+            </Box>
             <div>회사 소개</div>
             <p>회사는 소개합니다.</p>
             {/* <Link to={'/about/location'}>location</Link>
