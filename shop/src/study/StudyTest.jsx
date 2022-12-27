@@ -11,7 +11,6 @@ import styled from "styled-components";
 
 function PageLink() {
     let [shoes, setShoes] = useState(data);
-    console.log(shoes);
 
     return (
         <>
@@ -30,7 +29,6 @@ function PageLink() {
 export default PageLink
 
 function MainPage(props) {
-    console.log(props.shoes);
 
     function ListSort() {
         let shoesCopy = [...props.shoes];
@@ -54,7 +52,6 @@ function MainPage(props) {
 }
 
 function List(props) {
-    console.log(props.shoes);
 
     return (
         <ul className="study-list">
@@ -70,7 +67,6 @@ function List(props) {
 }
 
 function Item(props) {
-    console.log(props.shoes);
     
     return (
         <li className="item">
@@ -85,14 +81,10 @@ function Item(props) {
 }
 
 function DetailPage(props) {
-    console.log(props.shoes);
     let {id} = useParams();
-    console.log(id);
     let product = props.shoes.find(function(obj) {
-        console.log(obj);
         return obj.id === Number(id);
     });
-    console.log(product);
 
     let navigate = useNavigate();
 
@@ -120,9 +112,7 @@ function DetailPage(props) {
                     navigate('/');
                 }}>button태그의 홈 </button>
                 <Link onClick={ (e) => {
-                    console.log(e.target.innerText);
                     if (e.target.innerText === '홈') {
-                        console.log(e);
                         navigate('/');
                     }
                 }}>홈</Link>
@@ -184,7 +174,6 @@ let ButtonBox = styled.button`
 `;
 
 const ReactStyleBtn = function(props) {
-    console.log(props);
     return (
         <ButtonBox>{props.children}</ButtonBox>
     )
@@ -192,7 +181,6 @@ const ReactStyleBtn = function(props) {
 
 function About() {
     let navigate = useNavigate();
-    console.log(navigate);
 
     return (
         <div>
