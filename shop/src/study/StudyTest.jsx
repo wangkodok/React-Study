@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../css/style.css'
 import data from '../data'
 import bg from '../img/bg.png';
@@ -7,6 +7,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom';
 import StudyCSS from './Study.module.css';
 import styled from "styled-components";
+
 
 function PageLink() {
     let [shoes, setShoes] = useState(data);
@@ -95,6 +96,22 @@ function DetailPage(props) {
 
     let navigate = useNavigate();
 
+    // useEffect 안에 있는 코드는 html 렌더링 후 코드 보여주기
+    
+    
+    let [test, setTest] = useState(0);
+    let [open, setOpen] = useState(true);
+
+    useEffect(() => {
+        let a = setTimeout(() => {
+            setOpen(false);
+
+        }, 2000);
+        return ()=> {
+            clearTimeout(a)
+        }
+    }, [])
+
     return (
         <>
             <div className='inner'>
@@ -112,6 +129,16 @@ function DetailPage(props) {
                 <Link to={"/page"}>Link 링크</Link>
                 <a href="https://www.naver.com">a 링크</a>
             </div>
+            {
+                open === true ? 
+                    <div className="alert alert-warning">2초이내 구매시 할인</div>
+                : null
+            }
+            <button onClick={() => {
+                let copyCount = test;
+                copyCount = copyCount + 1;
+                setTest(copyCount);
+            }}>버튼 {test}</button>
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
