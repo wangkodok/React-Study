@@ -148,6 +148,21 @@ let Box = styled.div`
     padding: 20px;
 `;
 
+let ButtonBox = styled.button`
+    background-color: yellow;
+    color: black;
+    border: 5px solid black;
+    font-weight: 700;
+    padding: 10px;
+`;
+
+const ReactStyleBtn = function(props) {
+    console.log(props);
+    return (
+        <ButtonBox>{props.children}</ButtonBox>
+    )
+}
+
 function About() {
     let navigate = useNavigate();
     console.log(navigate);
@@ -155,6 +170,7 @@ function About() {
     return (
         <div>
             <Box>
+                <ReactStyleBtn>버튼</ReactStyleBtn>
                 <YellowBtn bg="blue">버튼</YellowBtn>
                 <YellowBtn bg="orange">버튼</YellowBtn>
                 <NewBtn bg="red">dd</NewBtn>
