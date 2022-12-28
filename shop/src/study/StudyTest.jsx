@@ -88,24 +88,41 @@ function DetailPage(props) {
 
     let navigate = useNavigate();
 
-    // useEffect 안에 있는 코드는 html 렌더링 후 코드 보여주기
-    
-    
-    let [test, setTest] = useState(0);
-    let [open, setOpen] = useState(true);
+    // useEffect 안에 있는 코드는 html 렌더링 후 코드 보여준다.
+    // 1. 어려운 연산
+    // 2. 서버에서 데이터 가져오는 작업
+    // 3. 타이머 장착하는 것들
+
+    // useEffect 정리
+    // useEffect(() => {}) 1. 재렌더링마다 코드 실행하고 싶을 때
+    // useEffect(() => {}, [element]) 2. mount시 1회 코드 실행하고 싶을 때 (element 변경될 때 안에 있는 코드 실행 처음 렌더링할 때도 실행)
+    // useEffect(() => { return () => { 3. unmount시 1회 코드 실행하고 싶을 때 }}, [])
+    // useEffect 실행 전에 뭔가 실행하려면 언제나 return () => {} 사용한다.
+
+    let [count, setCount] = useState(0);
+    let [countDown, setCountDown] = useState(true);
+    console.log(countDown);
 
     useEffect(() => {
-        let a = setTimeout(() => {
-            setOpen(false);
+        console.log('안녕');
+        let time = setTimeout( () => {
+            setCountDown(false);
+            console.log('2초 후 실행');
+        }, 2000)
 
-        }, 2000);
-        return ()=> {
-            clearTimeout(a)
+        console.log(11);
+        return () => { // 동작 전에 실행된다.
+            console.log(111);
+            clearTimeout(time);
         }
     }, [])
-
+    
     return (
         <>
+            {
+                countDown === true ? 
+                <div className="alert alert-warning">2초 이내 구매시 할인</div> : null
+            }
             <div className='inner'>
                 <Link to={"/"}>홈</Link>
                 <button onClick={ () => {
@@ -119,16 +136,13 @@ function DetailPage(props) {
                 <Link to={"/page"}>Link 링크</Link>
                 <a href="https://www.naver.com">a 링크</a>
             </div>
-            {
-                open === true ? 
-                    <div className="alert alert-warning">2초이내 구매시 할인</div>
-                : null
-            }
-            <button onClick={() => {
-                let copyCount = test;
-                copyCount = copyCount + 1;
-                setTest(copyCount);
-            }}>버튼 {test}</button>
+            <button onClick={function() {
+                let copyCount = count;
+                copyCount = count + 1;
+                setCount(copyCount);
+
+                setCountDown(true);
+            }}>버튼 {count}</button>
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
