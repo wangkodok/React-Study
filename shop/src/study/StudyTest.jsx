@@ -21,6 +21,7 @@ function PageLink() {
                     <Route path='member' element={ <Member /> } />
                     <Route path='location' element={ <Location /> } />
                 </Route>
+                <Route path='/inputtext' element={ <InputText /> } ></Route>
             </Routes>
         </>
     )
@@ -240,5 +241,69 @@ function Member() {
 function Location() {
     return (
         <p>　· Location 컴포넌트</p>
+    )
+}
+
+// function InputText() {
+//     // useEffect 안에 있는 코드는 html 렌더링 후 코드 보여준다.
+//     // 1. 어려운 연산
+//     // 2. 서버에서 데이터 가져오는 작업
+//     // 3. 타이머 장착하는 것들
+
+//     // useEffect 정리
+//     // useEffect(() => {}) 1. 재렌더링마다 코드 실행하고 싶을 때
+//     // useEffect(() => {}, [element]) 2. mount시 1회 코드 실행하고 싶을 때 (element 변경될 때 안에 있는 코드 실행, 처음 렌더링할 때도 실행)
+//     // useEffect(() => { return () => { 3. unmount시 1회 코드 실행하고 싶을 때 }}, [])
+//     // useEffect 실행 전에 뭔가 실행하려면 언제나 return () => {} 사용한다.
+
+//     let [countDown, setCountDown] = useState(true);
+
+//     useEffect(() => {
+//         let time = setTimeout( () => {
+//             // setCountDown(false);
+//         }, 2000)
+
+//         return () => { // 동작 전에 실행된다.
+//             clearTimeout(time);
+//         }
+//     }, [])
+
+//     return (
+//         <div className="text-center">
+//             {
+//                 countDown === false ? 
+//                 <p style={{ fontSize: '24px', backgroundColor: '#ffffa6', padding: '20px 0', }}>숫자만 입력하세요.</p> 
+//                 : null
+//             }
+//             <input onChange={function(e) {
+//                 const countText = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+//                 if (countText === '') {
+//                     setCountDown(false);
+//                     e.target.value = '';
+//                 } else {
+//                     setCountDown(true);
+//                     console.log(e.target.value);
+//                 }
+//             }} type="text" />
+//         </div>
+//     )
+// }
+
+function InputText() {
+    let [change, setChange] = useState('');
+
+    useEffect(() => {
+        if (isNaN(change) === true) {
+            alert('숫자만 입력하세요.')
+        }
+    }, [change])
+
+    return (
+        <div className="text-center">
+            <input onChange={(e) => {
+                setChange(change = e.target.value);
+                console.log(change);
+            }} type="text" />
+        </div>
     )
 }
