@@ -7,6 +7,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom';
 import StudyCSS from './Study.module.css';
 import styled from "styled-components";
+import axios from "axios";
 
 
 function PageLink() {
@@ -16,7 +17,7 @@ function PageLink() {
         <>
             <Routes>
                 <Route path='/' element={ <MainPage shoes={shoes} setShoes={setShoes} /> } />
-                <Route path='/detail/:id' element={ <DetailPage shoes={shoes} /> } />
+                <Route path='/detail/:id' element={ <DetailPage shoes={shoes} setShoes={setShoes} /> } />
                 <Route path='/about' element={ <About /> } >
                     <Route path='member' element={ <Member /> } />
                     <Route path='location' element={ <Location /> } />
@@ -48,6 +49,18 @@ function MainPage(props) {
                 <button className="btn btn-dark" onClick={ListSort}>ABC 순서대로</button>
             </div>
             <List shoes={props.shoes}/>
+            <button onClick={ () => {
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                    console.log(result.data);
+                    let copy = [...props.shoes, ...result.data];
+                    console.log(copy);
+                    props.setShoes(copy);
+                })
+                .catch(() => {
+                    console.log('데이터 가져오기 실패');
+                })
+            }}>버튼</button>
         </>
     )
 }
