@@ -33,6 +33,7 @@ ol, ul {
 }
 .study-list {
     display: flex;
+    flex-wrap: wrap;
 }
 .study-list .item {
     width: calc(100% / 3);
