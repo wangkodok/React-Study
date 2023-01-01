@@ -120,6 +120,7 @@ function DetailPage(props) {
     let [shoes, setShoes] = useState(data);
     let [ids, setids] = useState(null);
     let [countDown, setCountDown] = useState(true);
+    let [tab, setTab] = useState(0);
 
     useEffect(() => {
         let time = setTimeout( () => {
@@ -162,6 +163,41 @@ function DetailPage(props) {
                     </div>
                 </div>
             </div> 
+            <Nav variant="tabs" defaultActiveKey="link0">
+                <Nav.Item>
+                    <Nav.Link eventKey="link0" onClick={() => {
+                        setTab(0)
+                    }}>버튼0</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link1" onClick={() => {
+                        setTab(1)
+                    }}>버튼1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="link2" onClick={() => {
+                        setTab(2)
+                    }}>버튼2</Nav.Link>
+                </Nav.Item>
+            </Nav>
+            {/* {
+                tab === 0 ? 
+                <div>내용0</div> : null
+            } */}
+            <TabContent tab={tab} />
         </>
     )
+}
+
+function TabContent({tab}) {
+    // if (tab === 0) {
+    //     return <div>내용1</div>
+    // }
+    // if (tab === 1) {
+    //     return <div>내용2</div>
+    // }
+    // if (tab === 2) {
+    //     return <div>내용3</div>
+    // }
+    return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tab]
 }
