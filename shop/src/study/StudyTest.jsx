@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet, useParams } from 'react-router-dom';
 import StudyCSS from './Study.module.css';
+import StudyTestCSS from './StudyTest.module.css';
 import styled from "styled-components";
 import axios from "axios";
 
@@ -122,6 +123,8 @@ function DetailPage(props) {
     let [countDown, setCountDown] = useState(true);
     let [tab, setTab] = useState(0);
 
+    let [click, setClick] = useState(1);
+
     useEffect(() => {
         let time = setTimeout( () => {
             setCountDown(false);
@@ -185,6 +188,20 @@ function DetailPage(props) {
                 <div>내용0</div> : null
             } */}
             <TabContent tab={tab} />
+
+
+
+            <div className={StudyTestCSS.item}>탭 UI</div>
+            <div style={{display: 'flex'}}>
+                <div className={`item ${click === 0 ? 'on' : ''}`} onClick={() => { setClick(0) }}>Tab 1</div>
+                <div className={`item ${click === 1 ? 'on' : ''}`} onClick={() => { setClick(1) }}>Tab 2</div>
+                <div className={`item ${click === 2 ? 'on' : ''}`} onClick={() => { setClick(2) }}>Tab 3</div>
+                <div className={`item ${click === 3 ? 'on' : ''}`} onClick={() => { setClick(3) }}>Tab 4</div>
+            </div>
+            <div hidden={ click !== 0 }>　1번</div>
+            <div hidden={ click !== 1 }>　2번</div>
+            <div hidden={ click !== 2 }>　3번</div>
+            <div hidden={ click !== 3 }>　4번</div>
         </>
     )
 }
