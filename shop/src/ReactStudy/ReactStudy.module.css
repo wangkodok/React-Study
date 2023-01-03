@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.countDown {
+    padding: 10px 20px;
+    margin: 20px 0 0 20px;
+    background-color: #eee;
+    font-size: 24px;
+    border-radius: 28px;
+}

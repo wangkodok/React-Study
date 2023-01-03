@@ -5,14 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // import Shop from './shoppingmall/Shop'
-import StudyTest from './study/StudyTest';
+// import StudyTest from './study/StudyTest';
+import ReactStudy from './ReactStudy/ReactStudy';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <BrowserRouter>
-      <StudyTest />
+      <ReactStudy />
     </BrowserRouter>
   // </React.StrictMode>
 );
