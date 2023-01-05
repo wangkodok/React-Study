@@ -216,5 +216,25 @@ function TabContent({tab}) {
     // if (tab === 2) {
     //     return <div>내용3</div>
     // }
-    return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tab]
+
+    const [fade, setFade] = useState('');
+
+    useEffect(() => {
+        let tiem = setTimeout(()=> {
+            setFade('end');
+        }, 10);
+
+        return () => {
+            clearTimeout(tiem);
+            setFade('');
+        }
+    }, [tab])
+
+    return (
+        <div className={`start ${fade}`}>
+            {
+                [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tab]
+            }
+        </div>
+    )
 }

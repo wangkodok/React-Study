@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // import Shop from './shoppingmall/Shop'
-// import StudyTest from './study/StudyTest';
+import StudyTest from './study/StudyTest';
 // import ReactStudy from './ReactStudy/ReactStudy';
-import Mouse from './mouse/mouse';
+// import Mouse from './mouse/mouse';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <BrowserRouter>
-      <Mouse />
+      <StudyTest />
     </BrowserRouter>
   // </React.StrictMode>
 );

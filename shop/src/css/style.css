@@ -66,3 +66,14 @@ ol, ul {
     color: #eee;
     background-color: #1f1f1f;
 }
+
+.start {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.end {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s;
+}
