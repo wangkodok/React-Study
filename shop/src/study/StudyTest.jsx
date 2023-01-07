@@ -125,11 +125,15 @@ function DetailPage(props) {
 
     let [click, setClick] = useState(1);
 
+    let [page, setPage] = useState('');
+
     useEffect(() => {
         let time = setTimeout( () => {
             setCountDown(false);
             console.log('2초 후 실행');
         }, 2000)
+        
+        setPage('on'); // 상세 페이지 들어오면 class 'on' 추가
 
         axios.get('https://codingapple1.github.io/shop/data2.json')
         .then((result) => {
@@ -144,64 +148,68 @@ function DetailPage(props) {
             clearTimeout(time);
             props.setShoes(shoes);
             // setShoes(shoes);
+
+            setPage('');
         }
     }, [])
     
     return (
         <>
-            {
-                countDown === true ? 
-                <div className="alert alert-warning">2초 이내 구매시 할인</div> : null
-            }
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6">
-                        <img src={`https://codingapple1.github.io/shop/shoes${Number(ids)+1}.jpg`} width="100%" />
+            <div className={`detail-page ${page}`}>
+                {
+                    countDown === true ? 
+                    <div className="alert alert-warning">2초 이내 구매시 할인</div> : null
+                }
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <img src={`https://codingapple1.github.io/shop/shoes${Number(ids)+1}.jpg`} width="100%" />
+                        </div>
+                        <div className="col-md-6">
+                            <h4 className="pt-5">{props.shoes[Number(ids)].title}</h4>
+                            <p>{props.shoes[Number(ids)].content}</p>
+                            <p>{props.shoes[Number(ids)].price}원</p>
+                            <button className="btn btn-danger">주문하기</button> 
+                        </div>
                     </div>
-                    <div className="col-md-6">
-                        <h4 className="pt-5">{props.shoes[Number(ids)].title}</h4>
-                        <p>{props.shoes[Number(ids)].content}</p>
-                        <p>{props.shoes[Number(ids)].price}원</p>
-                        <button className="btn btn-danger">주문하기</button> 
-                    </div>
+                </div> 
+                <Nav variant="tabs" defaultActiveKey="link0">
+                    <Nav.Item>
+                        <Nav.Link eventKey="link0" onClick={() => {
+                            setTab(0)
+                        }}>버튼0</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link1" onClick={() => {
+                            setTab(1)
+                        }}>버튼1</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link2" onClick={() => {
+                            setTab(2)
+                        }}>버튼2</Nav.Link>
+                    </Nav.Item>
+                </Nav>
+                {/* {
+                    tab === 0 ? 
+                    <div>내용0</div> : null
+                } */}
+                <TabContent tab={tab} />
+
+
+
+                <div className={StudyTestCSS.item}>탭 UI</div>
+                <div style={{display: 'flex'}}>
+                    <div className={`item ${click === 0 ? 'on' : ''}`} onClick={() => { setClick(0) }}>Tab 1</div>
+                    <div className={`item ${click === 1 ? 'on' : ''}`} onClick={() => { setClick(1) }}>Tab 2</div>
+                    <div className={`item ${click === 2 ? 'on' : ''}`} onClick={() => { setClick(2) }}>Tab 3</div>
+                    <div className={`item ${click === 3 ? 'on' : ''}`} onClick={() => { setClick(3) }}>Tab 4</div>
                 </div>
-            </div> 
-            <Nav variant="tabs" defaultActiveKey="link0">
-                <Nav.Item>
-                    <Nav.Link eventKey="link0" onClick={() => {
-                        setTab(0)
-                    }}>버튼0</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link1" onClick={() => {
-                        setTab(1)
-                    }}>버튼1</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link2" onClick={() => {
-                        setTab(2)
-                    }}>버튼2</Nav.Link>
-                </Nav.Item>
-            </Nav>
-            {/* {
-                tab === 0 ? 
-                <div>내용0</div> : null
-            } */}
-            <TabContent tab={tab} />
-
-
-
-            <div className={StudyTestCSS.item}>탭 UI</div>
-            <div style={{display: 'flex'}}>
-                <div className={`item ${click === 0 ? 'on' : ''}`} onClick={() => { setClick(0) }}>Tab 1</div>
-                <div className={`item ${click === 1 ? 'on' : ''}`} onClick={() => { setClick(1) }}>Tab 2</div>
-                <div className={`item ${click === 2 ? 'on' : ''}`} onClick={() => { setClick(2) }}>Tab 3</div>
-                <div className={`item ${click === 3 ? 'on' : ''}`} onClick={() => { setClick(3) }}>Tab 4</div>
+                <div hidden={ click !== 0 }>　1번</div>
+                <div hidden={ click !== 1 }>　2번</div>
+                <div hidden={ click !== 2 }>　3번</div>
+                <div hidden={ click !== 3 }>　4번</div>
             </div>
-            <div hidden={ click !== 0 }>　1번</div>
-            <div hidden={ click !== 1 }>　2번</div>
-            <div hidden={ click !== 2 }>　3번</div>
-            <div hidden={ click !== 3 }>　4번</div>
         </>
     )
 }
