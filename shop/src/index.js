@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 // import Shop from './shoppingmall/Shop'
 import StudyTest from './study/StudyTest';
+// import StudyTestSub from './study/StudyTestSub';
 // import ReactStudy from './ReactStudy/ReactStudy';
 // import Mouse from './mouse/mouse';
 import { BrowserRouter } from 'react-router-dom';
