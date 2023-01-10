@@ -10,13 +10,17 @@ import StudyTest from './study/StudyTest';
 // import ReactStudy from './ReactStudy/ReactStudy';
 // import Mouse from './mouse/mouse';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './study/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
+  <Provider store={store} >
     <BrowserRouter>
       <StudyTest />
     </BrowserRouter>
+  </Provider>
   // </React.StrictMode>
 );
 

@@ -9,24 +9,22 @@ import StudyCSS from './Study.module.css';
 import StudyTestCSS from './StudyTest.module.css';
 import styled from "styled-components";
 import axios from "axios";
+import Cart from "./Cart";
 
 let Context1 = createContext(); // 다른 파일의 Context1 사용하고 싶으면 import 시키기
 
 
 function PageLink() {
     let [shoes, setShoes] = useState(data);
-    let [재고] = useState([10, 11, 12]);
     console.log(shoes)
 
     return (
         <>
             <Routes>
                 <Route path='/' element={ <MainPage shoes={shoes} setShoes={setShoes} /> } />
-                <Route path='/detail/:id' element={ 
-                    <Context1.Provider value={{ 재고 }}>
-                        <DetailPage shoes={shoes} setShoes={setShoes} /> 
-                    </Context1.Provider>
-                } />
+                <Route path='/detail/:id' element={<DetailPage shoes={shoes} setShoes={setShoes} />} />
+                
+                <Route path="/cart" element={<Cart />} />
             </Routes>
         </>
     )
@@ -134,7 +132,6 @@ function DetailPage(props) {
 
     let [page, setPage] = useState('');
 
-    let { 재고 } = useContext(Context1);
 
     useEffect(() => {
         let time = setTimeout( () => {
@@ -171,7 +168,6 @@ function DetailPage(props) {
                 }
                 {/* Context API 경험 */}
                 <p>{props.shoes[0].title}</p>
-                <p>{ 재고[0] }</p>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
@@ -238,7 +234,6 @@ function TabContent({tab}) {
     // }
 
     const [fade, setFade] = useState('');
-    let { 재고 } = useContext(Context1);
 
     useEffect(() => {
         let tiem = setTimeout(()=> {
@@ -253,7 +248,6 @@ function TabContent({tab}) {
 
     return (
         <div className={`start ${fade}`}>
-            <p>{재고}</p>
             {
                 [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tab]
             }
