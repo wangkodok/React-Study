@@ -1,27 +1,25 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-
-let user = createSlice({
-    name: 'user',
-    initialState: 'kim',
-
-    // 리덕스에서 state 변경하는 방법
-    reducers: {
-        changeName(state) {
-            console.log(state);
-            return 'john';
-        }
-    }
-})
-
-export let { changeName } = user.actions;
+import user from './store/userSlice';
 
 let cart = createSlice({
     name: 'stock',
     initialState: [
         {id : 0, name : 'White and Black', count : 2},
         {id : 2, name : 'Grey Yordan', count : 1}
-    ]
+    ],
+    reducers: {
+        addCount(state, action){
+            // state[action.payload].count++
+            let idx = state.findIndex((index)=>{ return index.id === action.payload })
+            state[idx].count = state[idx].count + 1
+        },
+        addItem(state, action) {
+            state.push(action.payload);
+        }
+    }
 })
+
+export let { addCount, addItem } = cart.actions;
 
 export default configureStore({
     reducer: {

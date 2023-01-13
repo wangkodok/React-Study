@@ -10,6 +10,8 @@ import StudyTestCSS from './StudyTest.module.css';
 import styled from "styled-components";
 import axios from "axios";
 import Cart from "./Cart";
+import { addItem } from "./store";
+import { useDispatch } from "react-redux";
 
 let Context1 = createContext(); // 다른 파일의 Context1 사용하고 싶으면 import 시키기
 
@@ -131,7 +133,9 @@ function DetailPage(props) {
     let [click, setClick] = useState(1);
 
     let [page, setPage] = useState('');
+    let navigate = useNavigate();
 
+    let dispatch = useDispatch();
 
     useEffect(() => {
         let time = setTimeout( () => {
@@ -177,7 +181,11 @@ function DetailPage(props) {
                             <h4 className="pt-5">{props.shoes[Number(ids)].title}</h4>
                             <p>{props.shoes[Number(ids)].content}</p>
                             <p>{props.shoes[Number(ids)].price}원</p>
-                            <button className="btn btn-danger">주문하기</button> 
+                            <button className="btn btn-danger" onClick={()=>{
+                                console.log('ok');
+                                navigate('/cart')
+                                dispatch(addItem( {id : 1, name : 'red knit', count : 1} ))
+                            }}>주문하기</button> 
                         </div>
                     </div>
                 </div> 
