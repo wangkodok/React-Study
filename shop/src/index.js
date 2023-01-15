@@ -4,22 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// import Shop from './shoppingmall/Shop'
-import StudyTest from './study/StudyTest';
-// import StudyTestSub from './study/StudyTestSub';
-// import ReactStudy from './ReactStudy/ReactStudy';
-// import Mouse from './mouse/mouse';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
 import store from './study/store';
-import ApiTest from './study/apiTest'
+import Conding from './CodingTest/test';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store} >
     <BrowserRouter>
-      <ApiTest />
+      <Conding />
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>
