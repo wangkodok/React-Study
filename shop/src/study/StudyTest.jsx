@@ -45,6 +45,10 @@ function MainPage(props) {
     let objData = JSON.parse(localData);
     console.log(objData);
 
+    useEffect(()=>{
+        localStorage.setItem('watched', JSON.stringify( [] ));
+    }, [])
+
     let [shoes, setShoes] = useState(data);
     let [proDuctBox, setProDuctBox] = useState(0);
 
@@ -132,9 +136,9 @@ function Item(props) {
 
 function DetailPage(props) {
     let {id} = useParams();
-    // let product = props.shoes.find(function(obj) {
-    //     return obj.id === Number(id);
-    // });
+    let product = props.shoes.find(function(obj) {
+        return obj.id === Number(id);
+    });
     let [shoes, setShoes] = useState(data);
     let [ids, setids] = useState(null);
     let [countDown, setCountDown] = useState(true);
@@ -146,6 +150,19 @@ function DetailPage(props) {
     let navigate = useNavigate();
 
     let dispatch = useDispatch();
+
+    useEffect(()=>{
+        console.log(product);
+        let output = localStorage.getItem("watched");
+        output = JSON.parse(output);
+        output.push(product.id);
+        
+        output = new Set(output);
+        output = Array.from(output);
+
+        localStorage.setItem("watched", JSON.stringify(output));
+        
+    }, [])
 
     useEffect(() => {
         let time = setTimeout( () => {
