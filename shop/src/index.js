@@ -8,14 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './study/store';
-import Conding from './CodingTest/test';
+import Study from './study/StudyTest'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store} >
     <BrowserRouter>
-      <Conding />
+      <Study />
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>

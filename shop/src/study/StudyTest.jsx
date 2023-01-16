@@ -35,6 +35,16 @@ function PageLink() {
 export default PageLink
 
 function MainPage(props) {
+
+    let obj = {
+        name: 'kim',
+        age: 20
+    }
+    localStorage.setItem('data', JSON.stringify(obj));
+    let localData = localStorage.getItem('data')
+    let objData = JSON.parse(localData);
+    console.log(objData);
+
     let [shoes, setShoes] = useState(data);
     let [proDuctBox, setProDuctBox] = useState(0);
 
