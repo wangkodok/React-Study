@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+.sec-movie {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-list > li {
+    width: calc(100% / 5);
+}
+
+.movie-list > li > a {
+    margin: 10px 10px 40px;
+}
+
+.movie-list > li > a > img {
+    width: 100%;
+}
+
+.movie-list .title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-list .item-desc {
+    margin: 10px 0 0 0;
+}

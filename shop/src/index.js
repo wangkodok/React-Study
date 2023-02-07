@@ -8,14 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './study/store';
-import Study from './study/StudyTest'
+import OpenAPI from './CodingTest/OpenAPI'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store} >
     <BrowserRouter>
-      <Study />
+      <OpenAPI />
     </BrowserRouter>
   </Provider>
   // </React.StrictMode>
