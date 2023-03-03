@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+div {
+  box-sizing: border-box;
+}
+
+.list {
+  padding: 0 0 0 20px;
+  text-align: left;
+  border-bottom: 1px solid #aaa;
+}
+
 .black-nav {
   display: flex;
   background-color: #000;
