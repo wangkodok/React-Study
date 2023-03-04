@@ -18,6 +18,11 @@ function App() {
           따봉변경(따봉 + 1);
         }}>👍</span> {따봉}</h4>
         <p>3월 3일 발행</p>
+        <button onClick={() => {
+          let copy = [...title];
+          copy[0] = '여자 코트 추천';
+          setTitle(copy);
+        }}>글 수정</button>
       </div>
       <div className="list">
         <h4>{title[1]}</h4>
