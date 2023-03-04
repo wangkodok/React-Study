@@ -32,8 +32,21 @@ function App() {
         <h4>{title[2]}</h4>
         <p>3월 5일 발행</p>
       </div>
+      <Model></Model>
     </div>
   );
+}
+
+function Model() {
+  return (
+    <>
+      <div className="model">
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </>
+  )
 }
 
 export default App;

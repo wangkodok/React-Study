@@ -17,6 +17,13 @@ div {
   border-bottom: 1px solid #aaa;
 }
 
+.model {
+  margin: 20px 0 0 0;
+  padding: 20px;
+  background-color: #eee;
+  text-align: left;
+}
+
 .black-nav {
   display: flex;
   background-color: #000;
