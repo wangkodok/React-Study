@@ -43,7 +43,12 @@ function App() {
         title.map(function(value, i) {
           return (
             <div className="list" key={i}>
-              <h4>{title[i]} <span onClick={() => {
+              <h4 onClick={() => {
+                if (modal === false) {
+                  setModal(true);
+                } else {
+                  setModal(false);
+                }}}>{title[i]} <span onClick={() => {
                 let copy = [...따봉];
                 copy[i] = copy[i] + 1
                 따봉변경(copy);
@@ -54,17 +59,17 @@ function App() {
         })
       }
       {
-        modal === true ? <Modal /> : null
+        modal === true ? <Modal title={title} /> : null
       }
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <>
       <div className="modal">
-        <h4>제목</h4>
+        <h4>{props.title[0]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
       </div>
