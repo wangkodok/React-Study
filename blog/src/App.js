@@ -8,6 +8,7 @@ function App() {
   let [title, setTitle] = useState(["남자 코트 추천", "강남 우동맛집", "파이썬독학"]);
   let [따봉, 따봉변경] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
+  let [modalTit, setModalTit] = useState(0);
 
   return (
     <div className="App">
@@ -48,7 +49,9 @@ function App() {
                   setModal(true);
                 } else {
                   setModal(false);
-                }}}>{title[i]} <span onClick={() => {
+                }
+                setModalTit(i);
+              }}>{title[i]} <span onClick={() => {
                 let copy = [...따봉];
                 copy[i] = copy[i] + 1
                 따봉변경(copy);
@@ -59,7 +62,7 @@ function App() {
         })
       }
       {
-        modal === true ? <Modal title={title} setTitle={setTitle} /> : null
+        modal === true ? <Modal title={title} setTitle={setTitle} modalTit={modalTit}/> : null
       }
     </div>
   );
@@ -69,7 +72,7 @@ function Modal(props) {
   return (
     <>
       <div className="modal">
-        <h4>{props.title[0]}</h4>
+        <h4>{props.title[props.modalTit]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
         <button onClick={() => {
