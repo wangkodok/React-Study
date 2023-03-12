@@ -9,8 +9,8 @@ let BoxDiv = styled.div`
 `
 
 let YellowButton = styled.button`
-  background-color: yellow;
-  color: black;
+  background-color: ${props => props.bg};
+  color: ${props => props.bg === 'blue' ? 'white' : 'black'};
   padding: 10px;
 `
 
@@ -26,7 +26,8 @@ function Detail(props) {
     null :
     <div className="container">
       <BoxDiv>
-        <YellowButton>버튼</YellowButton>
+        <YellowButton bg="blue">버튼</YellowButton>
+        <YellowButton bg="orange">버튼</YellowButton>
       </BoxDiv>
       <div className="row">
         <div className="col-md-6">
