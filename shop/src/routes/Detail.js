@@ -14,6 +14,10 @@ let YellowButton = styled.button`
   padding: 10px;
 `
 
+let PurpleButton = styled(YellowButton)`
+  background-color: purple;
+`
+
 function Detail(props) {
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x) {
@@ -28,6 +32,7 @@ function Detail(props) {
       <BoxDiv>
         <YellowButton bg="blue">버튼</YellowButton>
         <YellowButton bg="orange">버튼</YellowButton>
+        <PurpleButton>버튼</PurpleButton>
       </BoxDiv>
       <div className="row">
         <div className="col-md-6">
