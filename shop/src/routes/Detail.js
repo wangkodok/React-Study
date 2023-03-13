@@ -7,17 +7,22 @@ function Detail(props) {
 
   let [alert, setAlert] = useState(false);
   useEffect(() => {
-    console.log("화면 실행하거나, 업데이트될 때")
-    setTimeout(() => {
+    // console.log("화면 실행하거나, 업데이트될 때")
+    let time = setTimeout(() => {
+      console.log(0);
       setAlert(true);
     }, 2000);
-  }, [])
+    return () => {
+      console.log(1);
+      clearTimeout(time);
+    }
+  })
   
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x) {
     return x.id == id
   });
-  console.log(찾은상품)
+  // console.log(찾은상품)
 
   return (
     찾은상품 === undefined ?
