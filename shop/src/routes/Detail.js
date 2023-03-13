@@ -11,7 +11,7 @@ function Detail(props) {
     setTimeout(() => {
       setAlert(true);
     }, 2000);
-  })
+  }, [])
   
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x) {
