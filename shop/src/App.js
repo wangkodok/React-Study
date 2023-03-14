@@ -7,9 +7,10 @@ import bg from './img/bg.png';
 import data from "./data";
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from "./routes/Detail";
+import axios from 'axios';
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
 
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
         </Container>
       </Navbar>
       <Routes>
-        <Route path="/" element={<Home shoes={shoes} />}/>
+        <Route path="/" element={<Home shoes={shoes} setShoes={setShoes} />}/>
         <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
       </Routes>
     </div>
@@ -46,6 +47,18 @@ function Home(props) {
           }
         </div>
       </div>
+      <button onClick={() => {
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((result) => {
+          console.log(result.data);
+
+          let copy = [...props.shoes, ...result.data];
+          props.setShoes(copy)
+        })
+        .catch(() => {
+          console.log('데이터 가져오기 실패');
+        })
+      }}>더 보기</button>
     </>
   )
 }
