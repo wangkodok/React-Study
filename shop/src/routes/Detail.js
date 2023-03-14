@@ -24,6 +24,25 @@ function Detail(props) {
   });
   // console.log(찾은상품)
 
+  let [inputText, setInputText] = useState('0');
+  let [text, setText] = useState(false);
+  useEffect(() => {
+    // 두 번째 방법 replace 사용하기
+    let str = inputText.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+    console.log(str);
+    if (str === '') {
+      setText(true);
+    } else {
+      setText(false);
+    }
+
+    // 첫 번째 방법 isNaN(); 사용하기
+    // if (isNaN(inputText) === true) {
+    //   setText(true);
+    // } else {
+    //   setText(false);
+    // }
+  }, [inputText])
   return (
     찾은상품 === undefined ?
     null :
@@ -43,6 +62,16 @@ function Detail(props) {
           <p>{찾은상품.price}원</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
+      </div>
+      <div>
+        <input type="text" onChange={(e) => {
+          setInputText(e.target.value);
+        }}></input>
+        {
+          text === true 
+          ? <p>숫자만 입력하세요.</p>
+          : null
+        }
       </div>
     </div>
   )
