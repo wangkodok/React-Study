@@ -1,14 +1,13 @@
 /* eslint-disable */
 
+// 리액트 사용
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import TabMenu from "../TabMenu";
 
 function Detail(props) {
-
   let [alert, setAlert] = useState(false);
   useEffect(() => {
-    // console.log("화면 실행하거나, 업데이트될 때")
+    // console.log("화면 실행하거나, 업데이트될 때");
     let time = setTimeout(() => {
       console.log(0);
       setAlert(true);
@@ -16,27 +15,27 @@ function Detail(props) {
     return () => {
       console.log(1);
       clearTimeout(time);
-    }
-  })
-  
-  let {id} = useParams();
-  let 찾은상품 = props.shoes.find(function(x) {
-    return x.id == id
+    };
   });
-  // console.log(찾은상품)
 
-  return (
-    찾은상품 === undefined ?
-    null :
+  let { id } = useParams();
+  let 찾은상품 = props.shoes.find(function (x) {
+    return x.id == id;
+  });
+
+  return 찾은상품 === undefined ? null : (
     <div className="container">
-      {
-        alert === true
-        ? null
-        : <div className="alert alert-warning">2초 이내에 구매 시 할인</div>
-      }
+      {alert === true ? null : (
+        <div className="alert alert-warning">2초 이내에 구매 시 할인</div>
+      )}
       <div className="row">
         <div className="col-md-6">
-          <img src={`https://codingapple1.github.io/shop/shoes${찾은상품.id + 1}.jpg`}width="100%" />
+          <img
+            src={`https://codingapple1.github.io/shop/shoes${
+              찾은상품.id + 1
+            }.jpg`}
+            width="100%"
+          />
         </div>
         <div className="col-md-6">
           <h4 className="pt-5">{찾은상품.title}</h4>
@@ -46,7 +45,7 @@ function Detail(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Detail;
