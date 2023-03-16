@@ -89,14 +89,14 @@ function Detail(props) {
   );
 }
 
-function TabMenu(props) {
-  if (props.탭 === 0) {
+function TabMenu({ 탭 }) {
+  if (탭 === 0) {
     return <div>내용0</div>;
   }
-  if (props.탭 === 1) {
+  if (탭 === 1) {
     return <div>내용1</div>;
   }
-  if (props.탭 === 2) {
+  if (탭 === 2) {
     return <div>내용2</div>;
   }
 }
