@@ -45,9 +45,6 @@ function Detail(props) {
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
-      
-      {/* 탭 메뉴 */}
-      <TabMenu />
     </div>
   )
 }
