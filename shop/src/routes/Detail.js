@@ -52,20 +52,53 @@ function Detail(props) {
       {/* 탭 메뉴 */}
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>
-          <Nav.Link eventKey="link0">버튼0</Nav.Link>
+          <Nav.Link
+            eventKey="link0"
+            onClick={() => {
+              탭변경(0);
+            }}
+          >
+            버튼0
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link1">버튼1</Nav.Link>
+          <Nav.Link
+            eventKey="link1"
+            onClick={() => {
+              탭변경(1);
+            }}
+          >
+            버튼1
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link2">버튼2</Nav.Link>
+          <Nav.Link
+            eventKey="link2"
+            onClick={() => {
+              탭변경(2);
+            }}
+          >
+            버튼2
+          </Nav.Link>
         </Nav.Item>
       </Nav>
-      <div>내용0</div>
-      <div>내용1</div>
-      <div>내용2</div>
+
+      {/* 탭 메뉴 */}
+      <TabMenu 탭={탭} />
     </div>
   );
+}
+
+function TabMenu(props) {
+  if (props.탭 === 0) {
+    return <div>내용0</div>;
+  }
+  if (props.탭 === 1) {
+    return <div>내용1</div>;
+  }
+  if (props.탭 === 2) {
+    return <div>내용2</div>;
+  }
 }
 
 export default Detail;
