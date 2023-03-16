@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import TabMenu from "../TabMenu";
 
 function Detail(props) {
 
@@ -44,6 +45,9 @@ function Detail(props) {
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
+      
+      {/* 탭 메뉴 */}
+      <TabMenu />
     </div>
   )
 }
