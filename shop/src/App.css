@@ -1,3 +1,16 @@
+/* 탭 메뉴 */
+.start {
+  /* opacity: 0; */
+  transform: scale(0);
+}
+
+.end {
+  transform: scale(1);
+  /* opacity: 1; */
+  /* transition: opacity 0.5s; */
+  transition: transform 0.5s;
+}
+
 .main-bg {
   height: 300px;
   /* background-image: url("./img/bg.png"); */

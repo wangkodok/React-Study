@@ -90,7 +90,22 @@ function Detail(props) {
 }
 
 function TabMenu({ 탭 }) {
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭];
-}
+  let [fade, setFade] = useState("");
 
+  useEffect(() => {
+    let time = setTimeout(() => {
+      setFade("end");
+    }, 100);
+    return () => {
+      clearTimeout(time);
+      setFade("");
+    };
+  }, [탭]);
+
+  return (
+    <div className={`start ${fade}`}>
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    </div>
+  );
+}
 export default Detail;
