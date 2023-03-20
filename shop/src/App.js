@@ -4,6 +4,7 @@
 import "./App.css";
 import data from "./data";
 import Detail from "./routes/Detail";
+import MouseEvent from "./MouseEvent";
 
 // 이미지 소스
 import bg from "./img/bg.png";
@@ -28,7 +29,8 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to="/">Home</Link>　<Link to="/detail">Detail</Link>
+            <Link to="/">Home</Link>　<Link to="/detail">Detail</Link>　
+            <Link to="/ui_component">ui-component</Link>
           </Nav>
         </Container>
       </Navbar>
@@ -47,6 +49,7 @@ function App() {
           }
         />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route path="/ui_component" element={<MouseEvent />} />
       </Routes>
     </div>
   );
