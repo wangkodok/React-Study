@@ -5,23 +5,29 @@ import "./App.css";
 import data from "./data";
 import Detail from "./routes/Detail";
 import MouseEvent from "./MouseEvent";
+import ContextAPI from "./ContextAPI";
+import ContextData from "./ContextData"; // state 불러오기
 
 // 이미지 소스
 import bg from "./img/bg.png";
 import loadingSpinner from "./img/loadingSpinner.gif";
 
 // 리액트 사용
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 
 // 라이브러리
 import axios from "axios";
 
+// ContextAPI
+export let ContextAPIData = createContext();
+
 function App() {
   let [shoes, setShoes] = useState(data);
   let [buttonCount, setButtonCount] = useState(1);
   let [is, setIs] = useState(false);
+  let [stateData, setStateData] = useState(ContextData); // state 저장
 
   return (
     <div className="App">
@@ -30,7 +36,8 @@ function App() {
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
             <Link to="/">Home</Link>　<Link to="/detail">Detail</Link>　
-            <Link to="/ui_component">ui-component</Link>
+            <Link to="/ui_component">ui-component</Link>　
+            <Link to="/ContextAPI">ContextAPI</Link>
           </Nav>
         </Container>
       </Navbar>
@@ -50,6 +57,15 @@ function App() {
         />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route path="/ui_component" element={<MouseEvent />} />
+        <Route
+          path="/ContextAPI"
+          element={
+            // state 전달하고 싶은 컴포넌트에게 "변수.Provider" 감싸주고 저장된 state 변수 value={{ }} 안에 저장하기
+            <ContextAPIData.Provider value={{ stateData, setStateData }}>
+              <ContextAPI />
+            </ContextAPIData.Provider>
+          }
+        />
       </Routes>
     </div>
   );
