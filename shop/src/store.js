@@ -2,8 +2,24 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 let user = createSlice({
   name: "user",
-  initialState: "홍길동",
+  initialState: "K",
+
+  // 1. state 변경해주는 함수 만들기
+  reducers: {
+    변경(state) {
+      return state + "D";
+    },
+    이름변경() {
+      return "K";
+    },
+    숫자증가(state) {
+      return 1 + state;
+    },
+  },
 });
+
+// 2. 변경해주는 함수 export 하기
+export let { 변경, 이름변경, 숫자증가 } = user.actions;
 
 let box = createSlice({
   name: "box",
