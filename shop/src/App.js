@@ -4,6 +4,7 @@
 import "./App.css";
 import data from "./data";
 import Detail from "./routes/Detail";
+import Cart from "./routes/Cart";
 import MouseEvent from "./MouseEvent";
 import ContextAPI from "./ContextAPI";
 import ContextData from "./ContextData"; // state 불러오기
@@ -37,6 +38,7 @@ function App() {
           <Nav className="me-auto">
             <Link to="/">Home</Link>　<Link to="/detail">Detail</Link>　
             <Link to="/ui_component">ui-component</Link>　
+            <Link to="/Cart">Cart</Link>　
             <Link to="/ContextAPI">ContextAPI</Link>
           </Nav>
         </Container>
@@ -66,6 +68,7 @@ function App() {
             </ContextAPIData.Provider>
           }
         />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
