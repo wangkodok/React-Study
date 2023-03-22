@@ -1,12 +1,7 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  변경,
-  이름변경,
-  숫자증가,
-  오브젝트변경,
-  오브젝트숫자증가,
-} from "../store"; // store 파일에서 변경해주는 함수 불러오기
+import { 변경, 이름변경, 숫자증가 } from "../store"; // store 파일에서 변경해주는 함수 불러오기
+import { 오브젝트변경, 오브젝트숫자증가 } from "../store/userSlice";
 
 function Cart() {
   let state = useSelector((state) => {

@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import 리터럴변경 from "./store/userSlice";
 
 let user = createSlice({
   name: "user",
@@ -20,22 +21,6 @@ let user = createSlice({
 
 // 2. 변경해주는 함수 export 하기
 export let { 변경, 이름변경, 숫자증가 } = user.actions;
-
-let 리터럴변경 = createSlice({
-  name: "user",
-  initialState: { name: "kim", age: 31 },
-
-  reducers: {
-    오브젝트변경(state) {
-      state.name = "do";
-    },
-    오브젝트숫자증가(state, action) {
-      state.age = state.age + action.payload;
-    },
-  },
-});
-
-export let { 오브젝트변경, 오브젝트숫자증가 } = 리터럴변경.actions;
 
 let box = createSlice({
   name: "box",
