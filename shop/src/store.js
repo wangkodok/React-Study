@@ -21,6 +21,19 @@ let user = createSlice({
 // 2. 변경해주는 함수 export 하기
 export let { 변경, 이름변경, 숫자증가 } = user.actions;
 
+let 리터럴변경 = createSlice({
+  name: "user",
+  initialState: { name: "kim", age: 31 },
+
+  reducers: {
+    오브젝트변경() {
+      return { name: "do", age: 31 };
+    },
+  },
+});
+
+export let { 오브젝트변경 } = 리터럴변경.actions;
+
 let box = createSlice({
   name: "box",
   initialState: [10, 11, 12],
@@ -39,5 +52,6 @@ export default configureStore({
     user: user.reducer,
     box: box.reducer,
     cart: cart.reducer,
+    리터럴변경: 리터럴변경.reducer,
   },
 });
