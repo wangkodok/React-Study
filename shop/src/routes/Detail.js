@@ -3,13 +3,20 @@
 // 리액트 사용
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // 라이브러리
 import { Nav } from "react-bootstrap";
 
+// 파일
+import { addItem } from "../store";
+
 function Detail(props) {
   let [alert, setAlert] = useState(false);
   let [탭, 탭변경] = useState(0);
+
+  let dispatch = useDispatch();
+
   useEffect(() => {
     // console.log("화면 실행하거나, 업데이트될 때");
     let time = setTimeout(() => {
@@ -45,7 +52,16 @@ function Detail(props) {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(
+                addItem({ id: 찾은상품.id, name: 찾은상품.title, count: 1 })
+              );
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
 

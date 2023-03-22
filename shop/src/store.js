@@ -45,10 +45,13 @@ let cart = createSlice({
         }
       }
     },
+    addItem(state, action) {
+      state.push(action.payload);
+    },
   },
 });
 
-export let { countChange } = cart.actions;
+export let { countChange, addItem } = cart.actions;
 
 export default configureStore({
   reducer: {
