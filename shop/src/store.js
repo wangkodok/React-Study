@@ -26,8 +26,8 @@ let 리터럴변경 = createSlice({
   initialState: { name: "kim", age: 31 },
 
   reducers: {
-    오브젝트변경() {
-      return { name: "do", age: 31 };
+    오브젝트변경(state) {
+      state.name = "do";
     },
   },
 });
