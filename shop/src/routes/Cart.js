@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { 변경, 이름변경, 숫자증가 } from "../store"; // store 파일에서 변경해주는 함수 불러오기
+import { 변경, 이름변경, 숫자증가, countChange } from "../store"; // store 파일에서 변경해주는 함수 불러오기
 import { 오브젝트변경, 오브젝트숫자증가 } from "../store/userSlice";
 
 function Cart() {
@@ -45,6 +45,7 @@ function Cart() {
                     // 3. 불러온 함수를 감싸주고 변경하기 "dispatch(변경())" 작성하기
                     onClick={() => {
                       dispatch(오브젝트변경());
+                      dispatch(countChange(i));
                     }}
                   >
                     +

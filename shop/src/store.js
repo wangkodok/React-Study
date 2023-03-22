@@ -33,7 +33,22 @@ let cart = createSlice({
     { id: 0, name: "White and Black", count: 2 },
     { id: 2, name: "Grey Yordan", count: 1 },
   ],
+
+  reducers: {
+    countChange(state, action) {
+      // state[action.payload].count = state[action.payload].count + 1;
+
+      // state 값의 똑같은 찾을 찾아서 +1 증가시키기
+      for (let i = 0; i < state.length; i++) {
+        if (state[i].id === i) {
+          state[action.payload].count = state[action.payload].count + 1;
+        }
+      }
+    },
+  },
 });
+
+export let { countChange } = cart.actions;
 
 export default configureStore({
   reducer: {
