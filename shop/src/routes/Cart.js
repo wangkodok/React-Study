@@ -24,7 +24,7 @@ function Cart() {
       <div>{state.리터럴변경.age}</div>
       <button
         onClick={() => {
-          dispatch(오브젝트숫자증가());
+          dispatch(오브젝트숫자증가(100));
         }}
       >
         버튼

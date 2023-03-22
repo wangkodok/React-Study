@@ -29,8 +29,8 @@ let 리터럴변경 = createSlice({
     오브젝트변경(state) {
       state.name = "do";
     },
-    오브젝트숫자증가(state) {
-      state.age = state.age + 1;
+    오브젝트숫자증가(state, action) {
+      state.age = state.age + action.payload;
     },
   },
 });
