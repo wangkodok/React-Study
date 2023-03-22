@@ -29,10 +29,13 @@ let 리터럴변경 = createSlice({
     오브젝트변경(state) {
       state.name = "do";
     },
+    오브젝트숫자증가(state) {
+      state.age = state.age + 1;
+    },
   },
 });
 
-export let { 오브젝트변경 } = 리터럴변경.actions;
+export let { 오브젝트변경, 오브젝트숫자증가 } = 리터럴변경.actions;
 
 let box = createSlice({
   name: "box",

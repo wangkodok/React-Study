@@ -1,6 +1,12 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { 변경, 이름변경, 숫자증가, 오브젝트변경 } from "../store"; // store 파일에서 변경해주는 함수 불러오기
+import {
+  변경,
+  이름변경,
+  숫자증가,
+  오브젝트변경,
+  오브젝트숫자증가,
+} from "../store"; // store 파일에서 변경해주는 함수 불러오기
 
 function Cart() {
   let state = useSelector((state) => {
@@ -15,6 +21,14 @@ function Cart() {
     <>
       {/* <div>{state.user}</div> */}
       <div>{state.리터럴변경.name}</div>
+      <div>{state.리터럴변경.age}</div>
+      <button
+        onClick={() => {
+          dispatch(오브젝트숫자증가());
+        }}
+      >
+        버튼
+      </button>
       <Table>
         <thead>
           <tr>
