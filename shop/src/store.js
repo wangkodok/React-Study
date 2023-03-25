@@ -42,16 +42,20 @@ let cart = createSlice({
       for (let i = 0; i < state.length; i++) {
         if (state[i].id === i) {
           state[action.payload].count = state[action.payload].count + 1;
+          // state[action.payload].count++;
         }
       }
     },
     addItem(state, action) {
       state.push(action.payload);
     },
+    deleteItem(state, action) {
+      state.splice(action.payload, 1);
+    },
   },
 });
 
-export let { countChange, addItem } = cart.actions;
+export let { countChange, addItem, deleteItem } = cart.actions;
 
 export default configureStore({
   reducer: {

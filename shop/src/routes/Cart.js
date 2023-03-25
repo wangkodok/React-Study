@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { 변경, 이름변경, 숫자증가, countChange } from "../store"; // store 파일에서 변경해주는 함수 불러오기
+import { 변경, 이름변경, 숫자증가, countChange, deleteItem } from "../store"; // store 파일에서 변경해주는 함수 불러오기
 import { 오브젝트변경, 오브젝트숫자증가 } from "../store/userSlice";
 
 function Cart() {
@@ -31,6 +31,7 @@ function Cart() {
             <th>상품명</th>
             <th>수량</th>
             <th>변경하기</th>
+            <th>상품삭제</th>
           </tr>
         </thead>
         <tbody>
@@ -49,6 +50,15 @@ function Cart() {
                     }}
                   >
                     +
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => {
+                      dispatch(deleteItem(i));
+                    }}
+                  >
+                    x
                   </button>
                 </td>
               </tr>
