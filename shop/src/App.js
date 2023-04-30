@@ -9,6 +9,7 @@ import MouseEvent from "./MouseEvent";
 import ContextAPI from "./ContextAPI";
 import ContextData from "./ContextData"; // state 불러오기
 import Scroll from "./Scroll"; // Scroll Event
+import ReduxStudy from "./ReduxStudy"; // Scroll Event
 
 // 이미지 소스
 import bg from "./img/bg.png";
@@ -41,7 +42,8 @@ function App() {
             <Link to="/ui_component">ui-component</Link>　
             <Link to="/Cart">Cart</Link>　
             <Link to="/ContextAPI">ContextAPI</Link>　
-            <Link to="/Scroll">Scroll</Link>
+            <Link to="/Scroll">Scroll</Link>　
+            <Link to="/ReduxStudy">ReduxStudy</Link>
           </Nav>
         </Container>
       </Navbar>
@@ -72,6 +74,7 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/scroll" element={<Scroll />} />
+        <Route path="/ReduxStudy" element={<ReduxStudy />} />
       </Routes>
     </div>
   );

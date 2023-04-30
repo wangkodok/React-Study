@@ -57,11 +57,45 @@ let cart = createSlice({
 
 export let { countChange, addItem, deleteItem } = cart.actions;
 
+// 리덕스 연습
+let list = createSlice({
+  name: "list",
+  initialState: [
+    { title: "홍길동", age: 100, price: 1000 },
+    { title: "홍길순", age: 100, price: 1000 },
+    { title: "홍길장", age: 100, price: 1000 },
+  ],
+
+  reducers: {
+    listChange(state, action) {
+      // for (let index = 0; index < state.length; index++) {
+      //   if (state[index].title === action.payload) {
+      //     state[index].age = state[index].age + 1;
+      //   }
+      // }
+
+      console.log(state);
+      console.log(action);
+      let str = String(state[action.payload].age);
+      console.log(str);
+      console.log(Number(str[str.length - 1]));
+      for (let index = 0; index < state.length; index++) {
+        if (index === action.payload) {
+          state[action.payload].age = Number(str[str.length - 1]) + 1;
+        }
+      }
+    },
+  },
+});
+
+export let { listChange } = list.actions;
+
 export default configureStore({
   reducer: {
     user: user.reducer,
     box: box.reducer,
     cart: cart.reducer,
     리터럴변경: 리터럴변경.reducer,
+    list: list.reducer,
   },
 });
