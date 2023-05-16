@@ -10,6 +10,7 @@ import ContextAPI from "./ContextAPI";
 import ContextData from "./ContextData"; // state 불러오기
 import Scroll from "./Scroll"; // Scroll Event
 import ReduxStudy from "./ReduxStudy"; // Scroll Event
+import TestCode from "./TestCode";
 
 // 이미지 소스
 import bg from "./img/bg.png";
@@ -43,7 +44,8 @@ function App() {
             <Link to="/Cart">Cart</Link>　
             <Link to="/ContextAPI">ContextAPI</Link>　
             <Link to="/Scroll">Scroll</Link>　
-            <Link to="/ReduxStudy">ReduxStudy</Link>
+            <Link to="/ReduxStudy">ReduxStudy</Link>　
+            <Link to="/TestCode">TestCode</Link>
           </Nav>
         </Container>
       </Navbar>
@@ -75,6 +77,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/scroll" element={<Scroll />} />
         <Route path="/ReduxStudy" element={<ReduxStudy />} />
+        <Route path="/TestCode" element={<TestCode />} />
       </Routes>
     </div>
   );
