@@ -5,6 +5,11 @@ function TestCode() {
   const [query, setQuery] = useState("");
   const [isSearchBtn, setIsSearchBtn] = useState(false);
   const [tag, setTag] = useState("");
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  function handleShowMore() {
+    setVisibleCount((prevCount) => prevCount + 3);
+  };
 
   function onInput(e) {
     setQuery(e.target.value);
@@ -17,6 +22,7 @@ function TestCode() {
       return;
     }
     setIsSearchBtn(true);
+    setVisibleCount(3);
   }
 
   useEffect(() => {
@@ -54,7 +60,16 @@ function TestCode() {
         <input type="text" onInput={onInput} />
         <button onClick={onClick}>버튼</button>
       </div>
-      {data.length === 0 ? tag : <p>{data[0].title}</p>}
+      {data.length === 0
+        ? tag
+        : data.slice(0, visibleCount).map((value, i) => {
+            return <p key={i}>{data[i].title}</p>;
+          })}
+      {visibleCount < data.length ? (
+        <button onClick={handleShowMore}>더 보기</button>
+      ) : data.length === 10 ? (
+        <div>더 이상 없습니다.</div>
+      ) : null}
     </section>
   );
 }
